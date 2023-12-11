@@ -1,0 +1,24 @@
+ENZYME	CLASS	CLEAVE_SITE_TYPE	TERMINAL	REGION	AMINO_ACIDS	PH
+ProAlanase	Serine protease	T	C		Pro-Ala	1.5
+Trypsin Platinum	Serine protease	T	C		Lys-Arg	8
+Lys-C	Cysteine protease	T	C		Lys	7.0-9.0
+rAsp-N	Aspartic protease	T	N		Asp	
+Rapid Digest Trypsin & Trypsin-Lys C	Serine protease	T	C		Lys-Arg	7.0-9.0
+IdeZ	Metalloprotease	R				
+IdeS 	Cysteine protease	T	C		Lys-Arg	
+Arg-C	Cysteine protease	T	C		Lys-Arg-Pro	7.6-7.9
+Asp-N	Aspartic protease	T	N		Asp-Cys	4.0-9.0
+Chymotrypsin	Serine protease	T	C	Tyr-Phe-Trp	7.0-9.0
+Elastase	Serine protease	T	C		Ala-Val-Ser-Gly-Leu-Ile	9
+Endoglycosidase H	Endoglycosidase	R				5.0-6.0
+Factor Xa	Serine protease	T	C		Ile-Gly/Asp-Gly-Arg	7.4
+Glu-C	Aspartic protease	T	C		Lys-Arg	4.0-9.0
+Immobilized Trypsin	Serine protease	T	C		Phe-Leu-Tyr-Trp	
+Pepsin	Aspartic protease	T	C		Phe-Leu	1.0-3.0
+PNGase F	Amidase	R			GlcNAc-Asn	8.6
+Proteinase K (Lyophilized)	Serine protease	R				8
+ProTEV Plus (improved Nla)	Cysteine protease	R			Gln-Gly	5.5-8.5
+rLys-C	Cysteine protease	T	C		Lys	8.0-9.0
+Sequencing Grade Modified Trypsin	Serine protease	T	C		Lys-Arg	7.8
+Trypsin-Lys C	Serine protease-Cysteine protease	T	C		Lys-Arg	7.0-9.0
+Trypsin Gold	Serine protease	T	C		Lys-Arg	7.0-9.0
