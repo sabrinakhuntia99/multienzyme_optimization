@@ -1,45 +1,55 @@
-import pandas as pd
-import seaborn as sns
-from sklearn.metrics.pairwise import cosine_similarity
-import matplotlib.pyplot as plt
+from scipy.spatial import ConvexHull
+import numpy as np
 
-# Read the CSV file
-data = pd.read_csv(r"C:\Users\Sabrina\PycharmProjects\multienzyme_optimization\enzymes_protease.csv")
+def simulate_sequential_cleavage(protein_sequence, enzyme):
+    cleaved_peptides = []
+    # Logic to find enzyme recognition sites and cleave the sequence
+    # Append cleaved peptides to cleaved_peptides list
+    return cleaved_peptides
 
-# Extract relevant columns
-enzyme_data = data[['ENZYME', 'CLEAVAGE_TERMINAL', 'CLEAVAGE_RESIDUES']]
+def simulate_mass_spectrometry(peptides):
+    # Filter peptides based on length (7-30 amino acids)
+    # Simulate fragmentation and detectability conditions
+    # Return peptides satisfying detectability conditions
+    pass
 
-# Pivot the table to get a matrix of enzymes and their cleavage sites
-pivot_table = pd.pivot_table(enzyme_data, index='ENZYME', columns=['CLEAVAGE_TERMINAL', 'CLEAVAGE_RESIDUES'],
-                             aggfunc=lambda x: 1 if len(x) > 0 else 0, fill_value=0)
+# Function to filter peptides based on mass spectrometry conditions
+def filter_peptides_for_mass_spectrometry(peptides):
+    # Implement filtering based on length (7-30 amino acids) and other conditions
+    return filtered_peptides
 
-# Calculate cosine similarity between enzymes
-similarity_matrix = cosine_similarity(pivot_table)
+# Load proteome data or sequences related to TB or MDR-TB
+proteome_sequences = load_proteome_data()
 
-# Convert similarity matrix to DataFrame
-similarity_df = pd.DataFrame(similarity_matrix, columns=pivot_table.index, index=pivot_table.index)
+# Define enzyme cleavage patterns
+enzymes = {
+    "Trypsin": "cleavage after K or R",
+    "Lys-C": "cleavage after K",
+    # Add other enzymes and their cleavage patterns as needed
+}
 
-# Plot the heatmap
-plt.figure(figsize=(10, 8))
-sns.heatmap(similarity_df, cmap='viridis', annot=True, fmt=".2f")
-plt.title('Enzyme Compatibility Based on Cleavage Site')
-plt.xlabel('Enzymes')
-plt.ylabel('Enzymes')
-plt.tight_layout()
-plt.show()
+results = {}
 
-# Extract enzyme families
-enzyme_families = data['CLASS']
+for enzyme_name, enzyme_pattern in enzymes.items():
+    detectable_peptides = []
+    detected_proteins = set()
 
-# Count the frequency of each unique enzyme family
-enzyme_family_freq = enzyme_families.value_counts()
+    # Simulate enzyme cleavage for each protein in the proteome
+    for protein_sequence in proteome_sequences:
+        cleaved_peptides = simulate_enzyme_cleavage(protein_sequence, enzyme_pattern)
+        detectable_peptides.extend(filter_peptides_for_mass_spectrometry(cleaved_peptides))
+        detected_proteins.add(protein_sequence)
 
-# Plotting the frequency bar graph
-plt.figure(figsize=(10, 6))
-enzyme_family_freq.plot(kind='bar', color='skyblue')
-plt.xlabel('Enzyme Family')
-plt.ylabel('Number of Proteases')
-plt.title('Enzyme Family Frequency')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+    # Calculate metrics for the current enzyme
+    results[enzyme_name] = {
+        "Number of detectable peptides": len(detectable_peptides),
+        "Number of detectable proteins": len(detected_proteins),
+        # Add more metrics calculation here (e.g., coverage percentage, hull layers cleaved, peptide length distribution)
+    }
+
+# Output results
+for enzyme, metrics in results.items():
+    print(f"Enzyme: {enzyme}")
+    for metric, value in metrics.items():
+        print(f"{metric}: {value}")
+    print("\n")
